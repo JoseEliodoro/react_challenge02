@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
+
+button{
+  width: 100px;
+  padding: 4px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  background-color: #92a21a;
+  cursor: pointer;
+}
+
+button:disabled{
+  background-color: rgba(146, 162, 26, .5);
+  cursor: default;
+}

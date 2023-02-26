@@ -1,0 +1,21 @@
+.input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input{
+  padding: 3px;
+  border: none;
+  border-radius: 30px;
+  border: 1px solid #92a21a;
+}
+
+
+.input svg{
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  color: #92a21a;
+}

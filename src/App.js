@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
 import './App.css';
+import { Form } from './components/Form';
+import { login } from './components/Utils/login';
+export const formContext = createContext();
+
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [typePassword, setTypePassword] = useState('password');
+
+  const submit = (e)=>{
+    e.preventDefault();
+    login({password, email}).then(()=>{
+      window.alert('Login realizado!')
+    }).catch(err=>{
+      console.log(err);
+    })
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <formContext.Provider value={{email, setEmail, password, setPassword, typePassword, setTypePassword}}>
+        <div className='meio'>
+          <Form handleSubmit={submit} disabled={email === '' || password.length <= 6}/>
+        </div>
+      </formContext.Provider>
+
     </div>
   );
 }
